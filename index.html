@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>中国百科全览</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fffde7);
+      margin: 0;
+      padding: 0;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: #00796b;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    nav {
+      background-color: #004d40;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #00695c;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .section {
+      background: #ffffffee;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .section h2 {
+      margin: 0;
+      padding: 15px 20px;
+      background-color: #4db6ac;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+    .section h2::after {
+      content: "▼";
+      position: absolute;
+      right: 20px;
+      transition: transform 0.3s ease;
+    }
+    .section h2.active::after {
+      transform: rotate(180deg);
+    }
+    .content {
+      padding: 20px;
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .content.open {
+      display: block;
+    }
+    .content img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      margin: 15px 0;
+    }
+    .content img:hover {
+      transform: scale(1.05);
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    #backToTop:hover {
+      background-color: #004d40;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+      .content {
+        font-size: 16px;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>中国百科全览</h1>
+    <p>探索中国的地理、文化、历史、景点和美食</p>
+  </header>
+
+  <nav>
+    <a href="#geography">地理</a>
+    <a href="#culture">文化</a>
+    <a href="#history">历史</a>
+    <a href="#attractions">景点</a>
+    <a href="#food">美食</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="section" id="geography">
+      <h2 onclick="toggleContent(this)">地理</h2>
+      <div class="content">
+        <p>东部地区地势低平，以平原、丘陵为主，适宜农业和城市建设，而西部地区地势高峻，以高原、山地、盆地为主，地理环境相对恶劣，交通不便。东部的水资源丰富，气候温和湿润，是中国主要的农业区。西部则拥有丰富的矿产资源和独特的高原生态系统。</p>
+        <img src="geographic.jpeg" alt="中国地理示意图" />
+        <p>此外，东部地区由于靠近海岸，早期对外开放，经济活跃，工业和服务业高度集中，城市化水平较高，因此发展得比西部快。相反，西部因为内陆交通不便，发展相对缓慢，但近年来国家大力推动西部大开发战略，基础设施和经济都有显著提升。</p>
+        <p>长江是中国最长的河流，横贯东西，推动了中华文明的发展。黄河则被称为中华民族的母亲河，流经黄土高原，孕育了丰富的历史文化。</p>
+      </div>
+    </div>
+
+    <div class="section" id="culture">
+      <h2 onclick="toggleContent(this)">文化</h2>
+      <div class="content">
+        <p>中华文化源远流长，拥有丰富的艺术形式和多样的节日传统。书法是中国文化的代表艺术之一，注重笔法和意境，被誉为艺术瑰宝。古代文人通过书法表达思想和情感。</p>
+        <img src="culture.jfif" alt="中国文化" />
+        <p>春节是中国最重要的传统节日，象征团圆与新生。节日期间，人们张灯结彩，放鞭炮，辞旧迎新，亲友团聚，共享美食。除此之外，端午节、中秋节等节日也蕴含深厚的文化内涵。</p>
+        <p>京剧是中国传统戏曲的代表，被誉为国粹。它通过唱、念、做、打等表演形式，展现人物性格和故事情节，深受国内外观众喜爱。</p>
+        <p>除了戏曲和书法，中国还有丰富的民间艺术如剪纸、刺绣、陶瓷等，这些传统艺术形式体现了中华民族的智慧与美学。</p>
+      </div>
+    </div>
+
+    <div class="section" id="history">
+      <h2 onclick="toggleContent(this)">历史</h2>
+      <div class="content">
+        <p>中国拥有超过五千年的历史，文明发端于黄河流域。夏、商、周三代奠定了中华文明基础，秦始皇统一六国，建立中央集权的秦朝，推动了中国的统一和发展。</p>
+        <img src="history.jfif" alt="中国历史" />
+        <p>中国古代四大发明：指南针、火药、造纸术和印刷术，对世界历史产生深远影响。各朝代更替，不断推动社会进步和文化繁荣。</p>
+        <p>汉唐时期，中国的政治、经济和文化达到鼎盛，丝绸之路的开通促进了东西方文化交流。近现代，中国经历了多次变革，逐渐走向现代化。</p>
+      </div>
+    </div>
+
+    <div class="section" id="attractions">
+      <h2 onclick="toggleContent(this)">景点</h2>
+      <div class="content">
+        <p>中国拥有丰富的旅游资源和众多世界级景点。万里长城横贯北方，蜿蜒起伏，是中华民族的象征之一。故宫位于北京，是明清两代皇宫，保存完好，历史底蕴深厚。</p>
+        <img src="viewpoint.jfif" alt="中国著名景点" />
+        <p>张家界以奇峰怪石著称，云雾缭绕，宛如仙境。黄山以其奇松、怪石、云海和温泉闻名。桂林山水甲天下，漓江的美景令人流连忘返。</p>
+        <p>此外，丽江古城、苏州园林、西湖等地皆是旅游胜地，融合了自然美景与人文风情。</p>
+      </div>
+    </div>
+
+    <div class="section" id="food">
+      <h2 onclick="toggleContent(this)">美食</h2>
+      <div class="content">
+        <p>中国美食丰富多样，风味各异。北京烤鸭色泽红亮，皮脆肉嫩，堪称京味美食代表。四川火锅麻辣鲜香，调料丰富，吃法多样，深受各地食客喜爱。</p>
+        <img src="food.jfif" alt="中国美食" />
+        <p>江南小笼包皮薄汤多，味道鲜美，是传统美食中的佼佼者。广东点心精致多样，讲究口感与味道。东北炖菜、湖南辣味等地方特色也各有千秋。</p>
+        <p>中国饮食文化讲究色香味形，注重营养搭配和食材的新鲜，体现了“民以食为天”的传统智慧。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <button id="backToTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    function toggleContent(header) {
+      const allSections = document.querySelectorAll('.section');
+      allSections.forEach(section => {
+        const h2 = section.querySelector('h2');
+        const content = section.querySelector('.content');
+        if (h2 === header) {
+          content.classList.toggle('open');
+          h2.classList.toggle('active');
+        } else {
+          content.classList.remove('open');
+          h2.classList.remove('active');
+        }
+      });
+    }
+
+    window.onscroll = () => {
+      const btn = document.getElementById("backToTop");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+
+</html>
